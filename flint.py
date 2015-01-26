@@ -97,11 +97,13 @@ def tinker(args=[]):
   PostRequest(url, params)
 
 def variable(args=[]):
+  args = filter(lambda arg : not IsFlag(arg), args)
   for variable in args:
     url = SPARK_CLOUD % CORE_IDS[FLAGS.core] + variable
     GetRequest(url, DefaultParams())
 
 def event(args=[]):
+  args = filter(lambda arg : not IsFlag(arg), args)
   print 'Not implemented yet'
 
 CMDS = {
